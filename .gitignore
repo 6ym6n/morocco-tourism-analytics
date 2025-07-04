@@ -1,0 +1,23 @@
+# Fichiers Python temporaires
+__pycache__/
+*.py[cod]
+
+# Environnements virtuels
+venv*/
+env*/
+
+# Fichiers Jupyter auto-sauvegardés
+.ipynb_checkpoints/
+
+# Fichiers système
+.DS_Store
+
+# Données trop volumineuses (optionnel)
+*.csv
+*.xlsx
+
+# Token/API keys (si tu en as)
+*.env
+
+# Large datasets
+Data/
