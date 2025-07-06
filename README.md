@@ -53,6 +53,8 @@ This project **extracts, cleans, and analyzes Reddit discussions about Moroccan 
 * Visualizations: top cities, theme & sentiment distribution, keyword trends
 * Folium map with mentions by city
 * Preview Reddit post excerpts
+* 
+![image](https://github.com/user-attachments/assets/0c6e7573-ce9c-4e0e-8195-63047d83083a)
 
 ---
 
@@ -71,7 +73,7 @@ The dataset is too large for GitHub.
 **Launch the dashboard:**
 
 ```bash
-streamlit run app_dashboard.py
+streamlit run dashboard.py
 ```
 
 **Install dependencies:**
