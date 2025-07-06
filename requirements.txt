@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+seaborn
+folium
+textblob
+praw
+matplotlib
+scikit-learn
+nltk
+pymongo
