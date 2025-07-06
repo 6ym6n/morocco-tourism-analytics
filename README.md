@@ -61,7 +61,7 @@ This project **extracts, cleans, and analyzes Reddit discussions about Moroccan 
 The dataset is too large for GitHub.
 
 1️⃣ Download the cleaned dataset from [Kaggle](https://www.kaggle.com/datasets/aymannaaimi/datset-for-moroccan-tourism-analytics/data).
-2️⃣ Create a folder named `DATA` in the project root.
+2️⃣ Create a folder named `Data` in the project root.
 3️⃣ Place `maroc_villes.csv` inside `DATA`.
 
 ---
