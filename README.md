@@ -1,86 +1,106 @@
-# morocco-tourism-analytics
+# 🧭 Morocco Tourism Analytics via Reddit
 
-# 🧭 Tourism Analysis in Morocco via Reddit
+## 📌 Overview
 
-## 📌 Project Objective
+This project **extracts, cleans, and analyzes Reddit discussions about Moroccan tourism** to:
 
-This project aims to **extract, clean, and analyze Reddit discussions** related to **tourism in Morocco**, with the goal of understanding:
-
-- The most frequently mentioned destinations
-- Visitor sentiments (positive, negative, neutral)
-- Thematic trends (accommodation, culture, food, etc.)
+* Identify frequently discussed destinations
+* Analyze visitor sentiments (positive, neutral, negative)
+* Discover thematic trends (accommodation, safety, food, etc.)
 
 ---
 
 ## ⚙️ Tech Stack
 
-| Component         | Tools Used                            |
-|------------------|----------------------------------------|
-| **Reddit Scraping**     | [`PRAW`](https://praw.readthedocs.io/en/latest/) (Reddit API) |
-| **Storage**             | MongoDB                             |
-| **Cleaning & NLP**      | `pandas`, `TextBlob`                |
-| **Visualization**       | `Streamlit`, `Seaborn`, `Folium`   |
+* **Scraping:** PRAW (Reddit API)
+* **Storage:** MongoDB
+* **Cleaning & NLP:** pandas, TextBlob
+* **Visualization:** Streamlit, Seaborn, Folium
 
 ---
 
-## 1️⃣ Step 1 – Scraping Reddit
+## 🚀 Pipeline
 
-- Automated query generation:  
-  *"travel to Marrakech"*, *"is Fes safe for tourists"*, etc.
-- Collection of **both posts and comments**
-- Storage in **MongoDB** with unique `_id` to avoid duplicates
-- Around **50 cities and villages** analyzed using 10 query templates each
+### 1️⃣ Scraping Reddit
 
----
+* Automated queries ("travel to Marrakech", "is Fes safe", etc.)
+* Collect posts and comments for \~50 cities and villages
+* Store data in MongoDB with deduplication
 
-## 2️⃣ Step 2 – Data Cleaning
+### 2️⃣ Data Cleaning
 
-Structured cleaning pipeline:
-- Remove duplicates
-- Merge `title` + `text` into `content`
-- Spam filtering (e.g., `.com`, `buy now`, `http`, short texts)
-- Validate tourism relevance via keyword matching
-- Final filtering: content must include **at least 2 tourism-related keywords**
+* Remove duplicates and merge `title` + `text`
+* Spam filtering (URLs, promotions, short posts)
+* Filter for tourism relevance (2+ tourism-related keywords)
 
-### 📊 Cleaning Results:
+**Cleaning Progress:**
 
-| Step                      | Remaining Rows |
-|---------------------------|----------------|
-| Raw Dataset               | 121,866        |
+| Step                      | Rows Remaining |
+| ------------------------- | -------------- |
+| Raw scraped data          | 121,866        |
 | After spam filtering      | 38,497         |
-| After tourism validation  | 18,562         |
+| After relevance filtering | 18,562         |
+
+### 3️⃣ Data Enrichment
+
+* Sentiment analysis using TextBlob
+* Thematic classification (Accommodation, Security, etc.)
+* Geolocation and place type tagging
+
+### 4️⃣ Visualization with Streamlit
+
+* Dynamic filters: city, sentiment, theme, place type
+* Visualizations: top cities, theme & sentiment distribution, keyword trends
+* Folium map with mentions by city
+* Preview Reddit post excerpts
 
 ---
 
-## 3️⃣ Step 3 – Data Enrichment
+## 🗂️ Dataset Download
 
-- **Sentiment analysis** using `TextBlob` → `Positive`, `Neutral`, `Negative`
-- **Multi-label thematic classification** (e.g., Accommodation, Security, Nature, etc.)
-- **City type** (City or Village)
-- **Geo-coordinates** added via external CSV
+The dataset is too large for GitHub.
+
+1️⃣ Download the cleaned dataset from [Kaggle](insert_kaggle_link_here).
+2️⃣ Create a folder named `DATA` in the project root.
+3️⃣ Place `maroc_villes.csv` inside `DATA`.
 
 ---
 
-## 4️⃣ Step 4 – Interactive Visualization with Streamlit
+## ▶️ Run Locally
 
-A user-friendly dashboard built with **Streamlit** to explore the cleaned dataset.
-
-### ✨ Features:
-
-- Dynamic filters:
-  - Location type (City/Village)
-  - Specific cities
-  - Sentiment category
-  - Tourism themes
-- Visualizations:
-  - Top 10 most discussed cities
-  - Theme distribution
-  - Sentiment distribution
-  - Top keywords per theme
-- **Folium map** showing city mentions
-- Text preview of Reddit posts/comments
-
-### ▶️ Run the dashboard:
+**Launch the dashboard:**
 
 ```bash
 streamlit run app_dashboard.py
+```
+
+**Install dependencies:**
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🎯 Why This Project Matters
+
+This project demonstrates how **social media data can enrich tourism analysis in Morocco**, supporting:
+
+* Regional tourism boards
+* Researchers analyzing travel perceptions
+* Data-driven tourism strategies
+
+---
+
+## 📄 License
+
+MIT License.
+
+---
+
+## 🙌 Author
+
+**Ayman Naaimi**
+Master's in Data Science for Smart Manufacturing, ENSAM Meknès.
+
+[GitHub Repository](https://github.com/6ym6n/morocco-tourism-analytics)
